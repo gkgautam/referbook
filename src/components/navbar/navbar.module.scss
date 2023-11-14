@@ -1,0 +1,25 @@
+.navbar{
+    background-image: linear-gradient(to right,#7A4297,#B1268C,#DD242F) ;
+    .container{
+        color: #fff;
+        padding: 10px 0;
+        margin: 0 20px;
+        // text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        .profile{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cart{
+            a{
+                display: flex;
+                justify-content: center;
+                gap: 5px;
+            }
+        }
+    }
+}
