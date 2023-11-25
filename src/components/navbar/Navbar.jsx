@@ -1,27 +1,26 @@
 import React from 'react'
-import styles from './navbar.module.scss';
+// import styles from './navbar.module.scss';
 import Searchform from '../searchform/Searchform';
 import Image from 'next/image'
-import logo from '../../../public/logo.png'
+import logo from '/public/logo.png'
 import Dropdown from '../dropdown/Dropdown';
-import carticon from '../../../public/cart.svg';
-import profileicon from '../../../public/profile-icon.svg';
-
+import carticon from '/public/cart.svg';
+import profileicon from '/public/profile-icon.svg';
 
 function Navbar() {
   return (
-    <div className={styles.navbar}>
-      <div className={styles.container}>
-        <div>
+    <div className="navbar bg-gradient-to-r from-[#7A4297] via-[#B1268C] to-[#DD242F]">
+     <div className="container text-white mx-5 flex justify-center items-center gap-10">
+     <div>
         <Image
         src={logo}
-        width={100}
+        width={80}
         height={50}
         alt="logo image"
       />
         </div>
         <Searchform/>
-        <div className={styles.profile}>
+     <div className="profile flex justify-center items-center">
         <Image
         src={profileicon}
         width={16}
@@ -30,18 +29,15 @@ function Navbar() {
       />
         <Dropdown content={{title:"Govind kuma...",options:['My Profile','Orders','Notification','Logout']}}/>
         </div>
-       
-
         <div className='referrer'>
           <a href=''>
           <span>Become a referrer</span>
           </a>
         </div>
-
         <Dropdown content={{title:"More",options:['Notiication Preferences','24x7 Customer Care','Advertise','Download App']}}/>
 
-        <div className={styles.cart}>
-          <a href=''>
+        <div className="cart">
+          <a href='' className='flex justify-center gap-1'>
           <Image
         src={carticon}
         width={16}
@@ -51,8 +47,7 @@ function Navbar() {
           <span>Cart</span>
           </a>
         </div>
-      {/* Hi I am header component2 */}
-      </div>
+     </div>
     </div>
   )
 }
