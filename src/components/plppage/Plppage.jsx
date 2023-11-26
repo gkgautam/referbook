@@ -9,7 +9,8 @@ import google from '/public/google.webp';
 function Plppage() {
   return (
     <>
-     <div className="plp_section grid grid-cols-4 gap-5 my-7 mx-5">
+    <div className='mx-auto py-4 w-11/12'>
+    <div className="plp_section grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-10">
        <Plpcard comp_data={{comp_picture:microsoftimg,comp_name:'MICROSOFT',job_title:'Sr. frontend developer',location:'Delhi',yrs_exp:'3yrs-5yrs',price:'₹630'}}/>
        <Plpcard comp_data={{comp_picture:atlassian,comp_name:'ATLASSIAN',job_title:'Backend developer',location:'Bangalore',yrs_exp:'2yrs-4yrs',price:'₹650'}}/>
        <Plpcard comp_data={{comp_picture:google,comp_name:'GOOGLE',job_title:'Junior Engineer',location:'Gurugram',yrs_exp:'1yrs-3yrs',price:'₹740'}}/>
@@ -19,6 +20,8 @@ function Plppage() {
        <Plpcard comp_data={{comp_picture:microsoftimg,comp_name:'MICROSOFT',job_title:'Sr. frontend developer',location:'Delhi',yrs_exp:'3yrs-5yrs',price:'₹630'}}/>
        <Plpcard comp_data={{comp_picture:atlassian,comp_name:'ATLASSIAN',job_title:'Backend developer',location:'Bangalore',yrs_exp:'2yrs-4yrs',price:'₹650'}}/>
         </div>
+    </div>
+    
     </>
   )
 }

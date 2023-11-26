@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function Plpcard({comp_data}) {
   return (
-    <div className="plpcard group w-[330px] max-h-[500] rounded-md">
+    <div className="plpcard group w-full max-h-[500] rounded-md">
         <a href='' className='#EBEBEB'>
         <Image
         className="company_picture w-full h-[396px] rounded-tr-md rounded-tl-md"

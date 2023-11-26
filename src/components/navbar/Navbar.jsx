@@ -9,7 +9,7 @@ import profileicon from '/public/profile-icon.svg';
 
 function Navbar() {
   return (
-    <div className="navbar bg-gradient-to-r from-[#7A4297] via-[#B1268C] to-[#DD242F]">
+    <div className="navbar hidden md:block bg-gradient-to-r from-[#7A4297] via-[#B1268C] to-[#DD242F]">
      <div className="container text-white mx-5 flex justify-center items-center gap-10">
      <div>
         <Image
