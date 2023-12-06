@@ -1,12 +1,11 @@
 'use client'
-import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
-import { initTE, Ripple } from "tw-elements";
+// import { initTE, Ripple } from "tw-elements";
 
 function Login() {
-	useEffect(() => {
-		initTE({ Ripple });
-	  }, []);
+	// useEffect(() => {
+	// 	initTE({ Ripple });
+	//   }, []);
 	return (
 // <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com --> 
 <section className="gradient-form h-full bg-neutral-200 dark:bg-neutral-700 flex justify-center">
@@ -41,7 +40,7 @@ function Login() {
                       id="exampleFormControlInput1"
                       placeholder="Username" />
                     <label
-                      for="exampleFormControlInput1"
+                      htmlFor="exampleFormControlInput1"
                       className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
                       >Username
                     </label>
@@ -55,7 +54,7 @@ function Login() {
                       id="exampleFormControlInput11"
                       placeholder="Password" />
                     <label
-                      for="exampleFormControlInput11"
+                      htmlFor="exampleFormControlInput11"
                       className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
                       >Password
                     </label>
