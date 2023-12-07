@@ -10,7 +10,7 @@ import hamburger from "/public/hamburger.svg";
 
 function Navbarmobile() {
   return (
-    <div className="navbar block md:hidden bg-gradient-to-r from-[#7A4297] via-[#B1268C] to-[#DD242F]">
+    <div className="navbar block md:hidden bg-gradient-to-r from-[#7A4297] via-[#B1268C] to-[#DD242F] mb-10">
       <div className="text-white">
         <div className="upper flex justify-between items-center py-2 pr-4">
             <div className="">
