@@ -2,7 +2,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Navbarmobile from '@/components/navbarmobile/Navbarmobile';
 import Plppage from '@/components/plppage/Plppage';
 import React from 'react';
-import Login from '../login/Login';
+import Login from '../signin/page';
 
 function page() {
   return (
@@ -11,7 +11,7 @@ function page() {
       <Navbar/>
       <Navbarmobile/>
       <div className='content-container'>
-        <Login/>
+        {/* <Login/> */}
         <Plppage/>
        </div>
     </div>
