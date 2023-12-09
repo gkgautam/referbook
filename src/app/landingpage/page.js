@@ -8,8 +8,6 @@ function page() {
   return (
     <div>
       {/* I am landing page */}
-      <Navbar/>
-      <Navbarmobile/>
       <div className='content-container'>
         {/* <Login/> */}
         <Plppage/>

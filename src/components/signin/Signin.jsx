@@ -2,7 +2,8 @@
 import { useFormik } from 'formik';
 import Link from 'next/link';
 import React from 'react';
-
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 function Signin() {
   const formik = useFormik({
     initialValues:{
@@ -10,6 +11,7 @@ function Signin() {
       password:""
     },onSubmit
   });
+  const router = useRouter();
 
   async function onSubmit (values){
     console.log('login credentials:', values);
@@ -23,6 +25,14 @@ function Signin() {
       });
       const data = await res.json();
       console.log('loogedin data:',data);
+      console.log('loogedin res:',res);
+      if(res.status===400){
+        toast.error(data.message);
+      }
+      else if(res.status===200){
+        toast.success('User login success!');
+        router.push('/landingpage');
+      }
 
     } catch (error) {
       console.log('signin catch block',error);

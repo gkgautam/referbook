@@ -12,7 +12,7 @@ export async function POST(req){
         const userExist = await User.findOne({ email });
     
         if (userExist) {
-          return NextResponse.json({ error: 'User already exists !' }, { status: 422});
+          return NextResponse.json({ message: 'User already exists !' }, { status: 422});
         } 
         
         else {
@@ -21,9 +21,9 @@ export async function POST(req){
           const data = await user.save();
     
           if (data) {
-            return new NextResponse('User Added',{ status: 201});
+            return NextResponse.json({message:'User Added'},{ status: 201});
           } else {
-            return new NextResponse('Internal Server Error', { status: 500 });
+            return NextResponse.json({message:'Internal Server Error'},{ status: 500});
           }
         }
     
