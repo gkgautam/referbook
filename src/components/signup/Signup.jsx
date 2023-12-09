@@ -13,6 +13,7 @@ function Signup() {
     },onSubmit});
 
     async function onSubmit (values) {
+     
       try {
         const res = await fetch("/api/signup",{
           method:"POST",
@@ -26,7 +27,7 @@ function Signup() {
         console.log('data:',data);
         console.log('res',res);
       } catch (error) {
-        console.log(error);
+        console.log('error',error);
         
       }
     }

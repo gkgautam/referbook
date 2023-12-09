@@ -1,7 +1,33 @@
-import Link from 'next/link'
-import React from 'react'
+'use client';
+import { useFormik } from 'formik';
+import Link from 'next/link';
+import React from 'react';
 
 function Signin() {
+  const formik = useFormik({
+    initialValues:{
+      email:"",
+      password:""
+    },onSubmit
+  });
+
+  async function onSubmit (values){
+    console.log('login credentials:', values);
+    try {
+      const res = await fetch("/api/signin",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify(values)
+      });
+      const data = await res.json();
+      console.log('loogedin data:',data);
+
+    } catch (error) {
+      console.log('signin catch block',error);
+    }
+  }
   return (
     <>
     <div className="g-0 lg:flex lg:p-10 lg:flex-wrap">
@@ -18,25 +44,29 @@ function Signin() {
                   </h4>
                 </div>
 
-                <form>
+                <form onSubmit={formik.handleSubmit}>
                   <p className="mb-4">Please login to your account</p>
                   {/* <!--Username input--> */}
                   <div className="relative mb-4" data-te-input-wrapper-init>
                     <input
-                      type="text"
+                    name="email"
+                    {...formik.getFieldProps("email")}
+                      type="email"
                       className="peer border-2 focus:border-b-2 focus:border-0 block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                       id="exampleFormControlInput1"
-                      placeholder="Username" />
+                      placeholder="Email" />
                     <label
                       htmlFor="exampleFormControlInput1"
                       className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                      >Username
+                      >Email
                     </label>
                   </div>
 
                   {/* <!--Password input--> */}
                   <div className="relative mb-4" data-te-input-wrapper-init>
                     <input
+                    name="password"
+                    {...formik.getFieldProps("password")}
                       type="password"
                       className="peer border-2 focus:border-b-2 focus:border-0 block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                       id="exampleFormControlInput11"
@@ -52,7 +82,7 @@ function Signin() {
                   <div className="mb-12 pb-1 pt-1 text-center">
                     <button
                       className="bg-gradient-to-r from-[#7A4297] via-[#B1268C] to-[#DD242F] mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
-                      type="button"
+                      type="submit"
                       data-te-ripple-init
                       data-te-ripple-color="light"
                       >
