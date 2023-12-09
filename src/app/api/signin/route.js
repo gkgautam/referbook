@@ -28,7 +28,7 @@ export async function POST(req){
                     process.env.TOKEN_SECRET_KEY,
                     { expiresIn: "30m" }
                   );
-                return new NextResponse({message:'login success'},{ status: 200},token);
+                return NextResponse.json({message:'login success',token},{ status: 200});
             }
         }
 

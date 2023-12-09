@@ -2,6 +2,8 @@
 import { useFormik } from 'formik'
 import React from 'react'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 function Signup() {
 
     const formik = useFormik({initialValues:{
@@ -11,6 +13,8 @@ function Signup() {
         phone:"",
         password:""
     },onSubmit});
+
+    const router = useRouter();
 
     async function onSubmit (values) {
      
@@ -26,6 +30,17 @@ function Signup() {
         const data = await res.json();
         console.log('data:',data);
         console.log('res',res);
+        if(res.status===422){
+          toast.error('User Already Exits!');
+        }
+        if(res.status===500){
+          toast.error('Internal Server error!');
+        }
+        else if(res.status===201){
+          toast.success(values.first_name+' Sign up Success!');
+          router.push('/signin');
+          formik.resetForm();
+        }
       } catch (error) {
         console.log('error',error);
         
