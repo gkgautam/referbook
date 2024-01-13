@@ -15,6 +15,10 @@ function Signin() {
 
   async function onSubmit (values){
     console.log('login credentials:', values);
+    if(!values.email || !values.password){
+      toast.error('All fields required!');
+    }
+    else{
     try {
       const res = await fetch("/api/signin",{
         method:"POST",
@@ -30,13 +34,14 @@ function Signin() {
         toast.error(data.message);
       }
       else if(res.status===200){
-        toast.success('User login success!');
+        toast.success('Welcome back '+data.userdata.first_name);
         router.push('/landingpage');
       }
 
     } catch (error) {
       console.log('signin catch block',error);
     }
+  }
   }
   return (
     <>
