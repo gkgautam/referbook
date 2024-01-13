@@ -17,7 +17,11 @@ function Signup() {
     const router = useRouter();
 
     async function onSubmit (values) {
-     
+      if(!values.first_name || !values.last_name || !values.email || !values.phone || !values.password){
+        toast.error('All fields are required!');
+      }
+     else{
+
       try {
         const res = await fetch("/api/signup",{
           method:"POST",
@@ -45,6 +49,7 @@ function Signup() {
         console.log('error',error);
         
       }
+     }
     }
 
   return (
