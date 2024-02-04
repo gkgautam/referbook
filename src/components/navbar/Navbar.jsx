@@ -6,18 +6,20 @@ import logo from '/public/logo.png'
 import Dropdown from '../dropdown/Dropdown';
 import carticon from '/public/cart.svg';
 import profileicon from '/public/profile-icon.svg';
+import Link from 'next/link';
 
 function Navbar() {
   return (
     <div className="navbar hidden md:block bg-gradient-to-r from-[#7A4297] via-[#B1268C] to-[#DD242F] mb-10">
      <div className="container text-white mx-5 flex justify-center items-center gap-10">
-     <div>
+     <div><Link href="/landingpage">
         <Image
         src={logo}
         width={80}
         height={50}
         alt="logo image"
       />
+      </Link>
         </div>
         <Searchform/>
      <div className="profile flex justify-center items-center">
@@ -27,14 +29,14 @@ function Navbar() {
         height={16}
         alt="profile image"
       />
-        <Dropdown content={{title:"Govind kuma...",options:['My Profile','Orders','Notification','Logout']}}/>
+        <Dropdown content={{title:"Govind kuma...",options:['My Profile','Orders','Notification','Logout'],link:"profile"}}/>
         </div>
         <div className='referrer'>
           <a href=''>
           <span>Become a referrer</span>
           </a>
         </div>
-        <Dropdown content={{title:"More",options:['Notiication Preferences','24x7 Customer Care','Advertise','Download App']}}/>
+        <Dropdown content={{title:"More",options:['Notiication Preferences','24x7 Customer Care','Advertise','Download App'],link:"referrer"}}/>
 
         <div className="cart">
           <a href='' className='flex justify-center gap-1'>
